@@ -13,12 +13,12 @@ class PlacesController {
     }
 
     async store ({ request, response}){
-        const placeData = request.only(['name', 'address', 'description', 'price', 'type', 'lat', 'long'])
+        const placeData = request.only(['name', 'address', 'description', 'price', 'type', 'lat', 'long', 'user_id'])  
         return await Place.create(placeData)
     }
 
     async update ({ request, params, response }){
-        const placeData = request.only(['name', 'address', 'description', 'price', 'type', 'lat', 'long'])
+        const placeData = request.only(['name', 'address', 'description', 'price', 'type', 'lat', 'long', 'user_id'])
         const place = await Place.find(params.id)
 
         place.name = placeData.name
