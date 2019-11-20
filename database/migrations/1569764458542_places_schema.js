@@ -21,7 +21,7 @@ class PlacesSchema extends Schema {
   }
 
   down () {
-    this.drop('places')
+    this.drop('places');
   }
 }
 
