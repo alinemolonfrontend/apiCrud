@@ -1,8 +1,8 @@
 const Route = use('Route')
 
-Route.get('users', 'UsersController.index') 
-Route.post('users', 'UsersController.store')
+Route.get('users', 'UserController.index') 
+Route.post('users', 'UserController.store')
 
-Route.get('users/:id', 'UsersController.show')
-Route.put('users/:id', 'UsersController.update')
-Route.delete('users/:id', 'UsersController.destroy')
+Route.get('users/:id', 'UserController.show')
+Route.put('users/:id', 'UserController.update')
+Route.delete('users/:id', 'UserController.destroy')

@@ -2,9 +2,9 @@
 
 const User = use('App/Models/User');
 
-class UsersController {
+class UserController {
 
-    async index ({ request, response}){
+    async index (){
         return await User.query().with('places').paginate(1)
     }
 
@@ -12,12 +12,12 @@ class UsersController {
         return await User.findOrFail(params.id)
     }
 
-    async store ({ request, response}){
+    async store ({ request }){
         const userData = request.only(['username', 'email', 'password', 'gender'])
         return await User.create(userData)
     }
 
-    async update ({ request, params, response}){
+    async update ({ request, params }){
         const userData = request.only(['username', 'email', 'password', 'gender', 'id'])
         const user = await User.find(params.id)
 
@@ -43,4 +43,4 @@ class UsersController {
 
 }
 
-module.exports = UsersController
+module.exports = UserController

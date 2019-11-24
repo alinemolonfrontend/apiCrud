@@ -2,9 +2,9 @@
 
 const Place = use('App/Models/Place');
 
-class PlacesController {
+class PlaceController {
 
-    async index ({ request, response}){
+    async index (){
         return await Place.query().paginate(1)
     }
 
@@ -12,12 +12,12 @@ class PlacesController {
         return await Place.findOrFail(params.id)
     }
 
-    async store ({ request, response}){
+    async store ({ request }){
         const placeData = request.only(['name', 'address', 'description', 'price', 'type', 'lat', 'long', 'user_id'])  
         return await Place.create(placeData)
     }
 
-    async update ({ request, params, response }){
+    async update ({ request, params }){
         const placeData = request.only(['name', 'address', 'description', 'price', 'type', 'lat', 'long', 'user_id'])
         const place = await Place.find(params.id)
 
@@ -47,4 +47,4 @@ class PlacesController {
     
 }
 
-module.exports = PlacesController
+module.exports = PlaceController

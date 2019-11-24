@@ -20,3 +20,6 @@ Route.on('/').render('welcome')
 
 require('./routes/users')
 require('./routes/places')
+require('./routes/states')
+require('./routes/cities')
+require('./routes/neighborhoods')
